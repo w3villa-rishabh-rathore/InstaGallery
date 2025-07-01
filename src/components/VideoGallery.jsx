@@ -14,6 +14,8 @@ const screenWidth = Dimensions.get('window').width;
 const numColumns = 3;
 const itemSize = screenWidth / numColumns;
 
+import Video from 'react-native-video';
+
 import videos from './videoData'
 
 
@@ -22,7 +24,9 @@ const VideoGallery = () => {
     const [modalVisible, setModalVisible] = useState(false);
 
     const openVideo = (video) => {
-        setSelectedVideo(video);
+
+        console.log(video.sources[0]);
+        setSelectedVideo(video.sources[0]);
         setModalVisible(true);
     };
 
@@ -36,7 +40,7 @@ const VideoGallery = () => {
                 style={styles.thumbnail}
                 resizeMode="cover"
             />
-            
+
         </TouchableOpacity>
     );
 
@@ -57,12 +61,12 @@ const VideoGallery = () => {
                         <TouchableOpacity style={styles.closeArea} onPress={() => setModalVisible(false)}>
 
 
-                          
-                            <Image
-                source={{ uri: selectedVideo.thumb }}
-                style={styles.thumbnail}
-                resizeMode="cover"
-            />
+
+                            <Video
+                                source={{ uri: selectedVideo }}
+                                style={{ width: '100%', aspectRatio: 16 / 9 }}
+                                controls
+                            />
 
                         </TouchableOpacity>
                     </View>

@@ -6,9 +6,10 @@ const numColumns = 3;
 const screenWidth = Dimensions.get('window').width;
 const imageSize = screenWidth / numColumns;
 
-const images = Array.from({ length: 30 }).map((_, i) => ({
+
+const images = Array.from({ length: 1500}).map((_, i) => ({
     id: i.toString(),
-    uri: `https://picsum.photos/seed/${i}/300/300`,
+    uri: `https://picsum.photos/seed/${i+1}/300/300`,
 }));
 
 
