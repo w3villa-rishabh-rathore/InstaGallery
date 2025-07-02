@@ -55,26 +55,21 @@ const VideoGallery = () => {
                     showsVerticalScrollIndicator={false}
                 />
 
-
                 <Modal visible={modalVisible} transparent={true}>
                     <View style={styles.modalOverlay}>
                         <TouchableOpacity style={styles.closeArea} onPress={() => setModalVisible(false)}>
-
-
-
                             <Video
                                 source={{ uri: selectedVideo }}
-                                style={{ width: '100%', aspectRatio: 16 / 9 }}
+                                style={{
+                                    width: "100%",
+                                    height: "100%",
+                                }}
+                                resizeMode="stretch"
                                 controls
                             />
-
                         </TouchableOpacity>
                     </View>
-
                 </Modal>
-
-
-
             </SlideInView>
         </View>
     );
